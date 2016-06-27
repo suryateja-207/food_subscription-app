@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div >
+<div align="left">Hi Deepak,</div>
+<br>
+<div>
+{{count}} People will be having dinner today - {{date}}. Here is the compelete list
+</div>
+<ol>
+{% for people in people_eating_dinner %}
+  <li >{{people.user}}<br/></li>
+{% endfor %}
+</ol>
+</div>
+</body>
+</html>

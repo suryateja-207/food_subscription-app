@@ -1,0 +1,35 @@
+			<div ng-controller = "DinnerAttendenceController">
+			<form name="addForm" >
+			<div class="md-title" layout="row" layout-align="start end">
+		<md-button flex="10" ng-click="prev(dinnerAttendanceWeek[0].date)">prev</md-button>
+			<div flex="40"></div>
+		<md-button flex="10" ng-click="next(dinnerAttendanceWeek[0].date)" ng-disabled="">next</md-button>
+	</div>
+			<div layout="row" flex layout-wrap layout-align="start center" >
+		    			<div flex="5"></div>
+		    			<div flex="15"><h4>Day</h4></div>
+		    			<div flex="10"></div>
+		    			<div flex="25"><h4>Date</h4></div>
+		     			<div flex="15"></div>
+		    			<div flex="10"><h4>Yes</h4></div>
+		    			<div flex="5"></div>
+		    			<div flex="15"><h4>No</h4></div>
+		    		</div>
+		    	<md-list>
+		    		<md-list-item class="md-body-2" ng-repeat="data in dinnerAttendanceWeek">
+		    		<div layout="row" flex layout-wrap layout-align="start center" >
+		    			<div flex="25">{{data.day_name }}</div>
+		    			<div flex="35">{{data.date | date:"dd-MMM-yyyy"}}</div>
+		    			<div flex="10"></div>
+		    			<div flex="20">
+		    			<md-radio-group ng-change="addEntry($index)" layout="row" ng-model="data.is_eating"
+						ng-disabled="data.disabled"  >
+						 <md-radio-button 
+						value="Yes" class="md-primary" ng-disabled="data.disabled">Y</md-radio-button> <md-radio-button
+						value="No" ng-disabled="data.disabled">N</md-radio-button> </md-radio-group>
+						</div>
+		    		</div>
+		    		</md-list-item>
+		    	</md-list>
+	    </form>
+	    </div>
